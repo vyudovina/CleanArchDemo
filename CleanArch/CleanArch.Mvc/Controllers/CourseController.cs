@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.Mvc.Controllers
 {
-    //[Authorize]
     public class CourseController : Controller
     {
         private ICourseService _courseService;
