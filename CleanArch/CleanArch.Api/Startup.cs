@@ -35,8 +35,7 @@ namespace CleanArch.Api
                 options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
 
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            //MvcOptions.EnableEndpointRouting = false;
+            services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
             {
@@ -63,7 +62,7 @@ namespace CleanArch.Api
                c.SwaggerEndpoint("/swagger/v1/swagger.json", "University Api V1");
            });
 
-            //app.UseMvc(); ??
+            app.UseMvc();
 
             //app.UseRouting();
 

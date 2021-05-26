@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.Mvc
 {
@@ -42,7 +44,9 @@ namespace CleanArch.Mvc
                 options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
 
             });
+            services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
+            services.AddMediatR(typeof(Startup));
             RegisterServices(services);
 
         }
